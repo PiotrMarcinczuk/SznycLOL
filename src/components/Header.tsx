@@ -17,7 +17,10 @@ export default function Header({ initialNickname, initialTag }: HeaderProps) {
   const [searchedTag, setSearchedTag] = useState("");
   const { push } = useRouter();
   const [region, setRegion] = useState(() => {
-    return localStorage.getItem("region") || "EUNE";
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("region") || "EUNE";
+    }
+    return "EUNE";
   });
   const [validating, setValidating] = useState(false);
   const { removeData } = useLocalStorageData();
@@ -69,7 +72,9 @@ export default function Header({ initialNickname, initialTag }: HeaderProps) {
 
   const handleChangeSelectInput = (e: any) => {
     setRegion(e.target.value);
-    localStorage.setItem("region", e.target.value);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("region", e.target.value);
+    }
   };
 
   return (
