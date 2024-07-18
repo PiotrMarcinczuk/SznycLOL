@@ -23,13 +23,16 @@ export default function Header({ initialNickname, initialTag }: HeaderProps) {
     return "EUNE";
   });
   const [validating, setValidating] = useState(false);
+
   const { removeData } = useLocalStorageData();
   const { fetchAccessData, userData, fetchChampionMastery } = useFetchData();
 
   const { nickname, tag, puuid } = userData;
 
   useEffect(() => {
-    removeData();
+    if (typeof window !== "undefined") {
+      removeData();
+    }
     if (!nickname || !tag || !puuid) {
       return;
     }

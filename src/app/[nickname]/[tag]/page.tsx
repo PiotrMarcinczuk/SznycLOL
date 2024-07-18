@@ -16,8 +16,10 @@ export default function MainContent({ params }: MainContentProps) {
   const [valuableChampions, setValuableChampions] = useState([]);
   const [errorDuringFetch, setErrorDuringFetch] = useState(false);
   useEffect(() => {
-    const championsMastery = getData();
-    console.log(championsMastery);
+    let championsMastery = null;
+    if (typeof window !== "undefined") {
+      championsMastery = getData();
+    }
     if (!championsMastery) {
       setErrorDuringFetch(true);
     } else {

@@ -6,8 +6,14 @@ import { useRouter } from "next/navigation";
 export default function useFetchData() {
   const router = useRouter();
   const [userData, setUserData] = useState({
-    nickname: localStorage.getItem("nickname") || "",
-    tag: localStorage.getItem("tag") || "",
+    nickname:
+      typeof window !== "undefined"
+        ? localStorage.getItem("nickname") || ""
+        : "",
+    tag:
+      typeof window !== "undefined"
+        ? localStorage.getItem("nickname") || ""
+        : "",
     puuid: "",
   });
   const { setData } = useLocalStorageData();
@@ -45,7 +51,9 @@ export default function useFetchData() {
       .then((response) => {
         router.refresh();
         console.log(response.data);
-        setData(response);
+        if (typeof window !== "undefined") {
+          setData(response);
+        }
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
