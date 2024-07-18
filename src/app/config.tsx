@@ -6,4 +6,4 @@ export const data = [
   { name: "E", x: 5, y: 5, value: 50000, r: 15 },
   { name: "F", x: 6, y: 6, value: 60000, r: 15 },
 ];
-export const http = "http://34.118.111.181/";
+export const http = "http://localhost:5000";

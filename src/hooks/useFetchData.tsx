@@ -23,6 +23,7 @@ export default function useFetchData() {
     tag: string,
     setValidating: React.Dispatch<React.SetStateAction<boolean>>
   ) => {
+    console.log(nickname, tag);
     axios
       .post(`${http}/getPuuid`, {
         nickname: nickname,
