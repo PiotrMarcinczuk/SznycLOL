@@ -39,10 +39,7 @@ export default function HelpPage() {
             </p>
           </li>
         </ul>
-      </section>
-
-      <section className={styles.contact}>
-        <p>
+        <p className={styles.contact}>
           If you have any problem or questions contact details are on my github
           you can click github logo on left down corner
         </p>

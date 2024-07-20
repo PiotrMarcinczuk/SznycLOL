@@ -26,8 +26,8 @@ export default function BubbleChart({ data, nickname, tag }: BubbleChartProps) {
   const [explodeFlag, setExplodeFlag] = useState(false);
   const dataLen = data.length;
   const svgRef = useRef<SVGSVGElement | null>(null);
-  const width = 800;
-  const height = 380;
+  const width = 1200;
+  const height = 800;
 
   const calculateSize = (championPoints: number) => {
     const minPoints = 12000; // Minimum points to consider
@@ -41,7 +41,7 @@ export default function BubbleChart({ data, nickname, tag }: BubbleChartProps) {
       .domain([minPoints, maxPoints])
       .range([minRadius, maxRadius]);
 
-    return sizeScale(championPoints);
+    return sizeScale(championPoints) * 2;
   };
 
   const calculateFontSize = (radius: number) => {

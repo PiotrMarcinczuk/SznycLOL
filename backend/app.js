@@ -8,7 +8,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "http://sznyclol.fun",
     credentials: true,
   })
 );
@@ -20,7 +20,7 @@ const http = axios.create({
     "X-Riot-Token": "RGAPI-18c643f6-fb47-4a0d-b56a-de106a934d55",
   },
 });
-app.post("/getPuuid", async (req, res) => {
+app.post("/api/getPuuid", async (req, res) => {
   const { nickname, tag } = req.body;
   try {
     const response = await http.get(
@@ -35,7 +35,7 @@ app.post("/getPuuid", async (req, res) => {
   }
 });
 
-app.post("/getChampionMastery", async (req, res) => {
+app.post("/api/getChampionMastery", async (req, res) => {
   const { puuid, region } = req.body;
   let tempRegion = region;
   if (region === "EUNE") tempRegion = "eun1";

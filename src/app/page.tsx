@@ -18,39 +18,31 @@ export default function Home() {
           <p className="link_introduction">Click here to check introduction</p>
         </Link>
         <section className="link_section">
-          <a href="https://www.riotgames.com/pl">
-            <Image
-              src="/riot_logo.png"
-              alt="Riot Games Logo"
-              width={70}
-              height={24}
-            ></Image>
-          </a>
           <a href="https://www.leagueoflegends.com/pl-pl/">
             <Image
               src="/lol_logo.png"
               alt="Leauge of Legends logo"
-              width={50}
-              height={50}
+              width={100}
+              height={100}
             ></Image>
           </a>
           <a href="https://nextjs.org/">
             <Image
               src="/next_logo.png"
               alt="Next.js"
-              width={50}
-              height={50}
+              width={100}
+              height={100}
             ></Image>
           </a>
           <a href="https://d3js.org/">
-            <Image src="/d3_logo.png" alt="d3" width={50} height={50}></Image>
+            <Image src="/d3_logo.png" alt="d3" width={100} height={100}></Image>
           </a>
           <a href="https://nodejs.org/en">
             <Image
               src="/node-js_logo.png"
               alt="Node.js"
-              width={50}
-              height={50}
+              width={100}
+              height={100}
             ></Image>
           </a>
         </section>

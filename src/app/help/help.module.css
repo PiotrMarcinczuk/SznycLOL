@@ -1,9 +1,11 @@
 .general_description {
-  margin-top: 1em;
+  margin-top: 1.2em;
   width: 90%;
 }
 
 .button_p {
+  margin-top: 3em;
+  font-size: 1.4em;
   padding: 0;
 }
 
@@ -12,15 +14,9 @@
 }
 
 .description {
-  font-size: 0.5em;
+  font-size: 1.2em;
 }
 
 .contact {
-  width: 100%;
-  text-align: left;
-  margin: 5em 0 0 2em;
-  font-size: 0.3em;
-}
-
-.contact p {
+  margin-top: 3em;
 }

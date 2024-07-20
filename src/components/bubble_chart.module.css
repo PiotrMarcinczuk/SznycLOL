@@ -17,6 +17,10 @@
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
+.button_section button {
+  font-size: 1em;
+}
+
 .click_button {
   font-size: 0.4em;
   background-color: green;

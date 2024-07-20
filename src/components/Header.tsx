@@ -84,11 +84,11 @@ export default function Header({ initialNickname, initialTag }: HeaderProps) {
     <>
       <Link href="/">
         <Image
-          src={"/SznycLOL_logo.png"}
+          src={"/sznyc_lol_logo.png"}
           alt="logo SznycLOL"
           className={styles.logo}
-          width={54}
-          height={54}
+          width={170}
+          height={110}
         />
       </Link>
 
@@ -113,6 +113,7 @@ export default function Header({ initialNickname, initialTag }: HeaderProps) {
           <span
             onClick={handleClickLoop}
             className={`${styles.search_icon} material-symbols-outlined`}
+            style={{ fontSize: "3em" }}
           >
             search
           </span>

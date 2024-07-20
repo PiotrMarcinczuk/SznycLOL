@@ -23,9 +23,8 @@ export default function useFetchData() {
     tag: string,
     setValidating: React.Dispatch<React.SetStateAction<boolean>>
   ) => {
-    console.log(nickname, tag);
     axios
-      .post(`${http}/getPuuid`, {
+      .post(`${http}/api/getPuuid`, {
         nickname: nickname,
         tag: tag,
       })
@@ -45,7 +44,7 @@ export default function useFetchData() {
 
   const fetchChampionMastery = async (puuid: string, region: string) => {
     axios
-      .post(`${http}/getChampionMastery`, {
+      .post(`${http}/api/getChampionMastery`, {
         puuid: puuid,
         region: region,
       })
