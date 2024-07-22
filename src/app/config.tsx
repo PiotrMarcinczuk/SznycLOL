@@ -1,1 +1,1 @@
-export const http = "http://sznyclol.fun";
+export const http = "https://sznyclol.fun";
