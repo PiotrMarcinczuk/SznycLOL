@@ -105,7 +105,30 @@
     display: none;
   }
 
+  .search_container {
+    width: 15rem;
+  }
+
+  .select_region {
+    font-size: 1.5em;
+  }
+
+  .search_input {
+    width: 50%;
+    font-size: 1em;
+  }
+
+  .search_input_tag {
+    width: 25%;
+    font-size: 1.3em;
+  }
+
   .logo {
     display: none;
+  }
+
+  img {
+    width: 72px;
+    height: 72px;
   }
 }

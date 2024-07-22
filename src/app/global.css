@@ -88,3 +88,16 @@ footer p {
 footer img:hover {
   cursor: pointer;
 }
+
+@media screen and(width < 450) {
+  .home_description {
+    width: 80%;
+    font-size: 1em;
+    margin-top: 7em;
+    padding: 5px 3px 5px 3px;
+  }
+
+  .link_introduction {
+    text-align: center;
+  }
+}
