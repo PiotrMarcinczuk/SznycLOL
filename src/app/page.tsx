@@ -20,6 +20,7 @@ export default function Home() {
         <section className="link_section">
           <a href="https://www.leagueoflegends.com/pl-pl/">
             <Image
+              className="next_logo"
               src="/lol_logo.png"
               alt="Leauge of Legends logo"
               width={100}
@@ -28,6 +29,7 @@ export default function Home() {
           </a>
           <a href="https://nextjs.org/">
             <Image
+              className="next_logo"
               src="/next_logo.png"
               alt="Next.js"
               width={100}
@@ -35,10 +37,17 @@ export default function Home() {
             ></Image>
           </a>
           <a href="https://d3js.org/">
-            <Image src="/d3_logo.png" alt="d3" width={100} height={100}></Image>
+            <Image
+              className="next_logo"
+              src="/d3_logo.png"
+              alt="d3"
+              width={100}
+              height={100}
+            ></Image>
           </a>
           <a href="https://nodejs.org/en">
             <Image
+              className="next_logo"
               src="/node-js_logo.png"
               alt="Node.js"
               width={100}
