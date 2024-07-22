@@ -100,7 +100,7 @@
   border-bottom: 1px solid #ddd; /* Bottom border for each option */
 }
 
-@media screen and (width <= 450px) {
+@media screen and (max-width: 450px) {
   .user_info {
     display: none;
   }
