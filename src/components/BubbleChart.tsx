@@ -293,6 +293,7 @@ export default function BubbleChart({ data, nickname, tag }: BubbleChartProps) {
       const containerWidth = svgRef.current.parentElement.offsetWidth;
       const containerHeight = (containerWidth / width) * height * 1.5;
       const scale = calculateScale(containerWidth, containerHeight);
+      console.log("scale", scale);
       svgRef.current.setAttribute(
         "viewBox",
         `0 0 ${containerWidth} ${containerHeight}`
