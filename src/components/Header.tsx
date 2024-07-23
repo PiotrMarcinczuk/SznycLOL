@@ -58,6 +58,7 @@ export default function Header({ initialNickname, initialTag }: HeaderProps) {
   };
 
   const handleClickLoop = () => {
+    if (!searchedNick || !searchedTag) return;
     fetchAccessData(searchedNick, searchedTag, setValidating);
     push(`/${searchedNick}/${searchedTag}/${region}`);
     setSearchedNick("");
@@ -65,7 +66,7 @@ export default function Header({ initialNickname, initialTag }: HeaderProps) {
   };
 
   const handleKeyDown = (e: any) => {
-    if (e.key !== "Enter") return;
+    if (e.key !== "Enter" || !searchedNick || !searchedTag) return;
     fetchAccessData(searchedNick, searchedTag, setValidating);
     setSearchedNick("");
     setSearchedTag("");
