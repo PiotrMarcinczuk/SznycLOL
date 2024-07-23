@@ -82,7 +82,7 @@ export default function BubbleChart({ data, nickname, tag }: BubbleChartProps) {
         .attr("font-size", "20px")
         .attr("font-weight", "bold")
         .text(
-          "When you see this message, probably you have no champions with 12000+ points."
+          "When you see this message, probably you have no champions with 12000+ points or trying search on incorrect server."
         );
       return;
     }

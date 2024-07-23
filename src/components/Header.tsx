@@ -39,7 +39,7 @@ export default function Header({ initialNickname, initialTag }: HeaderProps) {
 
     fetchChampionMastery(puuid, region);
 
-    push(`/${nickname}/${tag}`);
+    push(`/${nickname}/${tag}/${region}`);
   }, [nickname, tag, puuid]);
 
   useEffect(() => {
@@ -59,7 +59,7 @@ export default function Header({ initialNickname, initialTag }: HeaderProps) {
 
   const handleClickLoop = () => {
     fetchAccessData(searchedNick, searchedTag, setValidating);
-    push(`/${searchedNick}/${searchedTag}`);
+    push(`/${searchedNick}/${searchedTag}/${region}`);
     setSearchedNick("");
     setSearchedTag("");
   };
@@ -69,7 +69,7 @@ export default function Header({ initialNickname, initialTag }: HeaderProps) {
     fetchAccessData(searchedNick, searchedTag, setValidating);
     setSearchedNick("");
     setSearchedTag("");
-    push(`/${searchedNick}/${searchedTag}`);
+    push(`/${searchedNick}/${searchedTag}/${region}`);
   };
 
   const handleChangeSelectInput = (e: any) => {
