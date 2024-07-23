@@ -29,6 +29,10 @@ export default function BubbleChart({ data, nickname, tag }: BubbleChartProps) {
   const width = 1200;
   const height = 800;
 
+  const calculateScale = (containerWidth: number, containerHeight: number) => {
+    return Math.min(containerWidth / width, containerHeight / height);
+  };
+
   const calculateSize = (championPoints: number) => {
     const minPoints = 12000; // Minimum points to consider
     const maxPoints = 5000000; // Maximum points to consider
@@ -287,14 +291,19 @@ export default function BubbleChart({ data, nickname, tag }: BubbleChartProps) {
       if (!svgRef.current || !svgRef.current.parentElement) return;
 
       const containerWidth = svgRef.current.parentElement.offsetWidth;
-      const containerHeight = (containerWidth / width) * height;
-
+      const containerHeight = (containerWidth / width) * height * 1.5;
+      const scale = calculateScale(containerWidth, containerHeight);
       svgRef.current.setAttribute(
         "viewBox",
         `0 0 ${containerWidth} ${containerHeight}`
       );
       svgRef.current.setAttribute("width", containerWidth.toString());
       svgRef.current.setAttribute("height", containerHeight.toString());
+
+      svg
+        .selectAll<SVGCircleElement, any>("circle")
+        .attr("r", (d) => d.radius * scale); // Update radius based on scale
+      svg.selectAll("text").attr("font-size", (d) => calculateFontSize(scale)); // Update font size based on scale
 
       simulation
         .force(

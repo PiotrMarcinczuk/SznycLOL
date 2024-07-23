@@ -89,7 +89,7 @@ footer img:hover {
   cursor: pointer;
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 1050px) {
   .home_description {
     width: 80%;
     font-size: 1em;

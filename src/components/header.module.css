@@ -1,4 +1,5 @@
 .header {
+  z-index: 998;
   width: 100%;
   height: 7em;
   position: fixed;
@@ -15,7 +16,7 @@
 
   left: 0;
   top: 0;
-  z-index: 1;
+  z-index: 999;
 }
 
 .search_container {
@@ -100,7 +101,7 @@
   border-bottom: 1px solid #ddd; /* Bottom border for each option */
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 1050px) {
   .user_info {
     display: none;
   }
@@ -110,7 +111,7 @@
   }
 
   .select_region {
-    font-size: 1.5em;
+    font-size: 90%;
   }
 
   .search_input {

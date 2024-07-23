@@ -14,7 +14,8 @@
 .button_section {
   position: absolute;
   width: 90%;
-  bottom: 1.7em;
+  height: 3em;
+  bottom: 15%;
   display: flex;
   justify-content: space-around;
   left: 50%;
@@ -61,4 +62,10 @@
 
 .off {
   background-color: green;
+}
+
+@media screen and (max-width: 1200px) {
+  .button_section {
+    bottom: 5%;
+  }
 }
