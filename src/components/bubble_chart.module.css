@@ -66,6 +66,14 @@
 
 @media screen and (max-width: 1200px) {
   .button_section {
+    width: 95%;
+    height: 4em;
     bottom: 5%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .button_section {
+    bottom: -25%;
   }
 }

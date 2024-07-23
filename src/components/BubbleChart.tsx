@@ -290,7 +290,7 @@ export default function BubbleChart({ data, nickname, tag }: BubbleChartProps) {
       if (!svgRef.current || !svgRef.current.parentElement) return;
 
       const containerWidth = svgRef.current.parentElement.offsetWidth;
-      const containerHeight = (containerWidth / width) * height;
+      const containerHeight = containerWidth * (height / width);
       const scale = calculateScale(containerWidth, containerHeight);
 
       svgRef.current.setAttribute(
