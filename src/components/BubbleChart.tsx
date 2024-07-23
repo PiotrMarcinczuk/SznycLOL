@@ -303,7 +303,7 @@ export default function BubbleChart({ data, nickname, tag }: BubbleChartProps) {
 
       svg
         .selectAll<SVGCircleElement, any>("circle")
-        .attr("r", (d) => d.radius * scale * 0.1); // Update radius based on scale
+        .attr("r", (d) => d.radius * scale * 0.00001); // Update radius based on scale
       svg.selectAll("text").attr("font-size", (d) => calculateFontSize(scale)); // Update font size based on scale
 
       simulation
