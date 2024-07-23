@@ -7,7 +7,6 @@ const bodyParser = require("body-parser");
 const app = express();
 
 const allowedOrigins = ["https://sznyclol.fun", "https://www.sznyclol.fun"];
-
 app.use(
   cors({
     origin: function (origin, callback) {
@@ -19,7 +18,7 @@ app.use(
       } else {
         return callback(new Error("Not allowed by CORS"));
       }
-   },
+    },
     credentials: true,
   })
 );

@@ -28,12 +28,13 @@ export default function Header({ initialNickname, initialTag }: HeaderProps) {
   const { fetchAccessData, userData, fetchChampionMastery } = useFetchData();
 
   const { nickname, tag, puuid } = userData;
-
+  console.log(userData);
   useEffect(() => {
     if (typeof window !== "undefined") {
       removeData();
     }
     if (!nickname || !tag || !puuid) {
+      console.log("no data");
       return;
     }
 

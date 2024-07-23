@@ -29,6 +29,7 @@ export default function useFetchData() {
         tag: tag,
       })
       .then((response) => {
+        console.log(response.data);
         setUserData({
           nickname: response.data.gameName,
           tag: response.data.tagLine,

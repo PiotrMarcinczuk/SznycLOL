@@ -64,8 +64,8 @@ export default function BubbleChart({ data, nickname, tag }: BubbleChartProps) {
   useEffect(() => {
     const svg = d3
       .select(svgRef.current)
-      .attr("width", width)
-      .attr("height", height)
+      .attr("viewBox", `0 0 ${width} ${height}`)
+      .attr("preserveAspectRatio", "xMidYMid meet")
       .attr("class", styles.svg);
     svg.selectAll("*").remove();
 
@@ -283,6 +283,31 @@ export default function BubbleChart({ data, nickname, tag }: BubbleChartProps) {
       sort();
     };
 
+    const handleResize = () => {
+      if (!svgRef.current || !svgRef.current.parentElement) return;
+
+      const containerWidth = svgRef.current.parentElement.offsetWidth;
+      const containerHeight = (containerWidth / width) * height;
+
+      svgRef.current.setAttribute(
+        "viewBox",
+        `0 0 ${containerWidth} ${containerHeight}`
+      );
+      svgRef.current.setAttribute("width", containerWidth.toString());
+      svgRef.current.setAttribute("height", containerHeight.toString());
+
+      simulation
+        .force(
+          "center",
+          d3.forceCenter(containerWidth / 2, containerHeight / 2)
+        )
+        .alpha(1)
+        .restart();
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Initial resize
+
     if (explodeButtonRef.current) {
       explodeButtonRef.current.addEventListener("click", handleExplosion);
     }
@@ -309,6 +334,7 @@ export default function BubbleChart({ data, nickname, tag }: BubbleChartProps) {
     }
 
     return () => {
+      window.removeEventListener("resize", handleResize);
       if (explodeButtonRef.current) {
         explodeButtonRef.current.removeEventListener("click", handleExplosion);
       }
