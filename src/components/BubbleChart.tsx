@@ -222,7 +222,6 @@ export default function BubbleChart({ data, nickname, tag }: BubbleChartProps) {
         .alpha(1)
         .restart();
       setTimeout(() => {
-        console.log("Simulation stopped");
         simulation
           .force(
             "x",
@@ -291,9 +290,9 @@ export default function BubbleChart({ data, nickname, tag }: BubbleChartProps) {
       if (!svgRef.current || !svgRef.current.parentElement) return;
 
       const containerWidth = svgRef.current.parentElement.offsetWidth;
-      const containerHeight = (containerWidth / width) * height * 1.5;
+      const containerHeight = (containerWidth / width) * height;
       const scale = calculateScale(containerWidth, containerHeight);
-      console.log("scale", scale);
+
       svgRef.current.setAttribute(
         "viewBox",
         `0 0 ${containerWidth} ${containerHeight}`
@@ -303,7 +302,7 @@ export default function BubbleChart({ data, nickname, tag }: BubbleChartProps) {
 
       svg
         .selectAll<SVGCircleElement, any>("circle")
-        .attr("r", (d) => d.radius * scale * 0.00001); // Update radius based on scale
+        .attr("r", (d) => d.radius * scale); // Update radius based on scale
       svg.selectAll("text").attr("font-size", (d) => calculateFontSize(scale)); // Update font size based on scale
 
       simulation

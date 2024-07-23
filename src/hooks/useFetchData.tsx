@@ -29,7 +29,6 @@ export default function useFetchData() {
         tag: tag,
       })
       .then((response) => {
-        console.log(response.data);
         setUserData({
           nickname: response.data.gameName,
           tag: response.data.tagLine,
@@ -51,7 +50,7 @@ export default function useFetchData() {
       })
       .then((response) => {
         router.refresh();
-        console.log(response.data);
+
         if (typeof window !== "undefined") {
           setData(response);
         }
