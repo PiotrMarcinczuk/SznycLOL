@@ -7,10 +7,8 @@ const bodyParser = require("body-parser");
 const app = express();
 
 const allowedOrigins = ["https://sznyclol.fun", "https://www.sznyclol.fun"];
-
 app.use(
   cors({
-<<<<<<< Updated upstream
     origin: function (origin, callback) {
       // Allow requests with no origin, like mobile apps or curl requests
       if (!origin) return callback(null, true);
@@ -21,9 +19,7 @@ app.use(
         return callback(new Error("Not allowed by CORS"));
       }
     },
-=======
-    origin: "http://sznyclol.fun",
->>>>>>> Stashed changes
+
     credentials: true,
   })
 );
