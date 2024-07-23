@@ -1,15 +1,15 @@
-import Image from "next/image";
+// app/layout.tsx or app/layout.js (depending on your setup)
 import "./global.css";
 import Header from "@/components/Header";
 import Head from "next/head";
-
+import Image from "next/image";
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <>
+    <html lang="en">
       <Head>
         <title>SznycLOL</title>
         <meta
@@ -24,20 +24,22 @@ export default function RootLayout({
         <link rel="icon" href="/sznyc_lol_logo.png" type="image/png" />
         <link rel="shortcut icon" href="/sznyc_lol_logo.png" type="image/png" />
       </Head>
-      <Header initialNickname="" initialTag="" />
-      {children}
-      <footer>
-        <p>
-          <a href="https://github.com/PiotrMarcinczuk">
-            <Image
-              src="/github-mark.png"
-              alt="GitHub Logo"
-              width={20}
-              height={20}
-            />
-          </a>
-        </p>
-      </footer>
-    </>
+      <body>
+        <Header initialNickname="" initialTag="" />
+        {children}
+        <footer>
+          <p>
+            <a href="https://github.com/PiotrMarcinczuk">
+              <Image
+                src="/github-mark.png"
+                alt="GitHub Logo"
+                width={20}
+                height={20}
+              />
+            </a>
+          </p>
+        </footer>
+      </body>
+    </html>
   );
 }
