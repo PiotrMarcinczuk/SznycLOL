@@ -1,6 +1,5 @@
 export default function useLocalStorageData() {
   const setData = (response: any) => {
-    console.log("set data");
     localStorage.setItem("championMastery", JSON.stringify(response.data));
   };
 
