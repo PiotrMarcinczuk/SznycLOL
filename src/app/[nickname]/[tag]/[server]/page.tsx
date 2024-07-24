@@ -12,7 +12,7 @@ interface MainContentProps {
 }
 
 export default function MainContent({ params }: MainContentProps) {
-  const { getData, removeData } = useLocalStorageData();
+  const { getData } = useLocalStorageData();
   const [valuableChampions, setValuableChampions] = useState([]);
   const [errorDuringFetch, setErrorDuringFetch] = useState(false);
   useEffect(() => {
@@ -20,15 +20,18 @@ export default function MainContent({ params }: MainContentProps) {
     if (typeof window !== "undefined") {
       championsMastery = getData();
     }
-    if (!championsMastery) {
-      setErrorDuringFetch(true);
-    } else {
+    if (championsMastery) {
       setErrorDuringFetch(false);
       const filteredMastery = championsMastery
         .filter((el: any) => el.championPoints >= 12000)
         .map((el: any) => el);
       setValuableChampions(filteredMastery);
     }
+    setTimeout(() => {
+      if (!championsMastery) {
+        setErrorDuringFetch(true);
+      }
+    }, 2000);
   }, [params]);
 
   return (
