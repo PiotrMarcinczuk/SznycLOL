@@ -1,6 +1,8 @@
 import axios from "axios";
 import useLocalStorageData from "./useLocalStorageData";
-import { http } from "../app/config";
+const dotenv = require("dotenv");
+dotenv.config();
+
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 export default function useFetchData() {
@@ -16,15 +18,21 @@ export default function useFetchData() {
         : "",
     puuid: "",
   });
-  const { setData } = useLocalStorageData();
 
+  const { setData } = useLocalStorageData();
+  const axiosInstance = axios.create({
+    baseURL: process.env.URL,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
   const fetchAccessData = async (
     nickname: string,
     tag: string,
     setValidating: React.Dispatch<React.SetStateAction<boolean>>
   ) => {
-    axios
-      .post(`${http}/api/getPuuid`, {
+    axiosInstance
+      .post(`/api/getPuuid`, {
         nickname: nickname,
         tag: tag,
       })
@@ -43,8 +51,8 @@ export default function useFetchData() {
   };
 
   const fetchChampionMastery = async (puuid: string, region: string) => {
-    axios
-      .post(`${http}/api/getChampionMastery`, {
+    axiosInstance
+      .post(`/api/getChampionMastery`, {
         puuid: puuid,
         region: region,
       })

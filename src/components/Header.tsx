@@ -89,6 +89,7 @@ export default function Header({ initialNickname, initialTag }: HeaderProps) {
           className={styles.logo}
           width={170}
           height={110}
+          priority
         />
       </Link>
 
@@ -100,29 +101,25 @@ export default function Header({ initialNickname, initialTag }: HeaderProps) {
             onChange={handleNicknameInputChange}
             onKeyDown={handleKeyDown}
             placeholder="Enter nickname"
-            value={searchedNick}
-          ></input>
+            value={searchedNick}></input>
           <input
             type="text"
             className={styles.search_input_tag}
             onChange={handleTagInputChange}
             onKeyDown={handleKeyDown}
             placeholder="#tag"
-            value={searchedTag}
-          ></input>
+            value={searchedTag}></input>
           <span
             onClick={handleClickLoop}
             className={`${styles.search_icon} material-symbols-outlined`}
-            style={{ fontSize: "3em" }}
-          >
+            style={{ fontSize: "3em" }}>
             search
           </span>
         </div>
         <select
           className={styles.select_region}
           onChange={handleChangeSelectInput}
-          defaultValue={region}
-        >
+          defaultValue={region}>
           <option value="EUNE">EUNE</option>
           <option value="EUW">EUW</option>
         </select>

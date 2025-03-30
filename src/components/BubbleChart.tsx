@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
 import styles from "./bubble_chart.module.css";
+import { memo } from "react";
 
 const championBaseUrl =
   "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons";
@@ -17,8 +18,11 @@ interface CustomSimulationNodeDatum extends d3.SimulationNodeDatum {
   radius: number;
   showText: boolean;
 }
-
-export default function BubbleChart({ data, nickname, tag }: BubbleChartProps) {
+const BubbleChart = memo(function BubbleChart({
+  data,
+  nickname,
+  tag,
+}: BubbleChartProps) {
   const explodeButtonRef = useRef<HTMLButtonElement | null>(null);
   const fightButtonRef = useRef<HTMLButtonElement | null>(null);
   const randomMoveButtonRef = useRef<HTMLButtonElement | null>(null);
@@ -371,8 +375,7 @@ export default function BubbleChart({ data, nickname, tag }: BubbleChartProps) {
         <button
           className={`
             ${styles.click_button} ${explodeFlag ? styles.on : styles.off}`}
-          ref={explodeButtonRef}
-        >
+          ref={explodeButtonRef}>
           Explode MODE
         </button>
         <button className={styles.click_button} ref={randomMoveButtonRef}>
@@ -387,4 +390,6 @@ export default function BubbleChart({ data, nickname, tag }: BubbleChartProps) {
       </div>
     </div>
   );
-}
+});
+
+export default BubbleChart;

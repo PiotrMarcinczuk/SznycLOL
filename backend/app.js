@@ -3,10 +3,10 @@ const axios = require("axios");
 const path = require("path");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-
+const dotenv = require("dotenv");
 const app = express();
-
-const allowedOrigins = ["https://sznyclol.fun", "https://www.sznyclol.fun"];
+dotenv.config();
+const allowedOrigins = process.env.ALLOWED_ORIGINS;
 app.use(
   cors({
     origin: function (origin, callback) {
@@ -27,7 +27,7 @@ app.use(bodyParser.json());
 const baseUrl = "https://europe.api.riotgames.com";
 const http = axios.create({
   headers: {
-    "X-Riot-Token": "RGAPI-18c643f6-fb47-4a0d-b56a-de106a934d55",
+    "X-Riot-Token": process.env.RIOT_API_KEY,
   },
 });
 app.post("/api/getPuuid", async (req, res) => {
