@@ -2,6 +2,14 @@
 
 To prosta aplikacja Next.js, która łączy się z backendem i używa Riot API do pobierania danych. Strona dynamicznie generuje wykresy bąbelkowe, które przedstawiają poziomy maestrii twoich bohaterów, oferując jasny i angażujący sposób na wyświetlanie twoich osiągnięć w grze. Pierwowzorem tego projektu jest strona dostępna pod adresem: https://masterychart.com/
 
+## Wykorzystane technologie
+
+- **Next.js** 
+- **React** 
+- **Riot API**
+- **D3.js** 
+- **Node.js** 
+
 ## Instalacja
 
 1. Sklonuj repozytorium:
