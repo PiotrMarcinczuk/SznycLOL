@@ -55,3 +55,6 @@ To prosta aplikacja Next.js, która łączy się z backendem i używa Riot API d
 - `RIOT_API_KEY` jest używany do łączenia się z Riot API, aby pobierać dane.
 - `ALLOWED_ORIGINS` to URL frontendowy, który ma dostęp do backendu.
 
+  ![image](https://github.com/user-attachments/assets/f26f41cd-af5c-4ef2-b9bc-65915a26264c)
+
+
